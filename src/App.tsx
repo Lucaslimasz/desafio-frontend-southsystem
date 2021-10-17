@@ -1,6 +1,14 @@
+import GlobalStyle from './styles/global';
+import Router from "./routes";
+import { BrowserRouter } from 'react-router-dom';
+
+
 function App() {
   return (
-   <h1>South Dragon</h1>
+    <BrowserRouter>
+      <GlobalStyle />
+      <Router />
+    </BrowserRouter>
   );
 }
 
