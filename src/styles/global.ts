@@ -16,6 +16,13 @@ export default createGlobalStyle`
 
   button {
     cursor: pointer;
+
+    position: relative;
+
+    &:active{
+      top: 1px;
+      left: 1px;
+    }
   }
 
   button, input {

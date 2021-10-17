@@ -40,7 +40,7 @@ export const Container = styled.div`
   > div {
     display: flex;
     align-items: center;
-    a {
+    button {
       padding: 18px;
       border-radius: 8px;
       margin-left: 10px;

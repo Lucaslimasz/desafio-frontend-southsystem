@@ -1,56 +1,62 @@
-import styled from 'styled-components';
-import Dragon from '../../assets/dragon.png';
-
-export const DragonImage = styled.div`
-  width: 100%;
-  height: 100vh;
-
-  background-image: url(${Dragon});
-  background-repeat: no-repeat;
-  background-position: center;
-  background-size: cover;
-
-  position: absolute;
-  bottom: 0;
-  right: 0;
-  z-index: -1;
-`;
+import styled from "styled-components";
 
 export const Container = styled.div`
   width: 100%;
   height: 100vh;
 
-  padding: 0 120px;
+  max-width: 1110px;
+  margin: auto;
+`;
 
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
+export const Informations = styled.div`
+  width: 100%;
+  height: 100%;
 
-  >img {
-    width: 302px;
-  }
-
-  h1 {
+  > h1 {
     font-weight: 500;
     font-size: 36px;
-    margin: 30px 0;
-    color: #fff;
+    color: #ffffff;
+    margin: 30px 0 45px;
   }
 
-  >div {
-    display: flex;
-    align-items: center;
-    button {
-      padding: 18px;
-      border-radius: 8px;
-      margin-left: 10px;
-      background-color: #D90B1C;
+  table {
+    width: 100%;
+    border-collapse: collapse;
 
-      transition: filter .2s ease;
+    tr {
+      border-bottom: 1pt solid #fff;
+    }
 
-      &:hover{
-        filter: brightness(92%);
+    .principal {
+      display: flex;
+      align-items: center;
+      font-weight: bold;
+      img {
+        margin-right: 16px;
       }
     }
+    
+    th, td {
+      padding: 14px 0;
+      
+      text-align: left;
+      font-weight: 500;
+      font-size: 14px;
+      text-transform: uppercase;
+  
+      color: #ffffff;
+    }
+ 
+    td {
+      font-weight: 400;
+      text-transform: none;
+      button {
+        background: none;
+        &:last-child{
+          margin-left: 10px;
+        }
+      }
+    }
+
   }
 `;
