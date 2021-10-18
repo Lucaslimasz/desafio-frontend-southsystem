@@ -1,5 +1,5 @@
 <h1 align="center">
-  <img alt="southdragon" title="southdragon" src=".github/logo.svg" width="220px" />
+  <img alt="southdragon" title="southdragon" src=".github/logo.svg" width="300px" />
 </h1>
 
 <p align="center">
