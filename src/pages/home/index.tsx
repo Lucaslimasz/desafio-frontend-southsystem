@@ -8,19 +8,14 @@ import Delete from "../../assets/delete.svg";
 import Edit from "../../assets/edit.svg";
 import { api } from "../../config/api";
 import Modal from "../../components/Modal";
-
-interface Informations {
-  createdAt: string;
-  name: string;
-  type: string;
-  id: string;
-  avatar?: string;
-}
+import ViewDragon from "../../components/ViewDragon";
+import { Informations } from "../../types/home";
 
 function Home() {
   const [informations, setInformations] = useState<Informations[]>([]);
   const [isActiveModal, setIsActiveModal] = useState<boolean>(false);
-  const [idEdit, setIdEdit] = useState<string>("");
+  const [isViewDragon, setViewDragon] = useState<boolean>(false);
+  const [idDragon, setIdDragon] = useState<string>("");
 
   useEffect(() => {
     async function getDragons() {
@@ -37,7 +32,12 @@ function Home() {
 
   const onActiveEdit = (id: string) => {
     setIsActiveModal(true);
-    setIdEdit(id);
+    setIdDragon(id);
+  };
+
+  const onActiveViewDragon = (id: string) => {
+    setViewDragon(true);
+    setIdDragon(id);
   };
 
   return (
@@ -58,9 +58,9 @@ function Home() {
                 {informations?.map((info) => (
                   <>
                     <tr key={info.id}>
-                      <td className="principal">
+                      <td className="principal" onClick={() => onActiveViewDragon(info.id)}>
                         <img
-                          src={info.avatar ? info.avatar : Image}
+                          src={info.avatar ?? Image}
                           alt="Foto"
                         />
                         {info.name}
@@ -97,8 +97,9 @@ function Home() {
       <Modal
         isOpen={isActiveModal}
         onRequestClose={setIsActiveModal}
-        id={idEdit}
+        id={idDragon}
       />
+      <ViewDragon id={idDragon} isOpen={isViewDragon} onClose={() => setViewDragon(false)} />
     </>
   );
 }

@@ -1,11 +1,5 @@
+import { PropsButton } from '../../types/home';
 import * as S from './styles';
-
-interface PropsButton {
-  children: string;
-  onClick?: () => Promise<void>;
-  active?: boolean;
-  disabled?: boolean;
-}
 
 function Input({active, children, ...rest}: PropsButton) {
   return (

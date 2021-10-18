@@ -8,21 +8,10 @@ import Logo from "../../assets/logo.svg";
 import Input from "../../components/Input";
 import Button from "../../components/Button";
 import { api } from "../../config/api";
+import { Informations, ModalProps } from "../../types/home";
 
-interface ModalProps {
-  isOpen: boolean;
-  onRequestClose(state: boolean): void;
-  id?: string;
-}
-
-interface Informations {
-  avatar?: string;
-  name: string;
-  type: string;
-}
-
-function Modal({ isOpen, onRequestClose, id }: ModalProps) {
-  const [informations, setInformations] = useState<Informations>(
+function Modal({ isOpen, onRequestClose, id }: Omit<ModalProps, "onClose">) {
+  const [informations, setInformations] = useState<Omit<Informations, "id" | "createdAt">>(
     {} as Informations
   );
   const [isRequestError, setIsRequestError] = useState<boolean>(false);
@@ -71,7 +60,7 @@ function Modal({ isOpen, onRequestClose, id }: ModalProps) {
 
   useEffect(() => {
     (async () => {
-      const response: {data: Informations} = await api.get(`/v1/dragon/${id}`)
+      const response: {data: Omit<Informations, "id" | "createdAt">} = await api.get(`/v1/dragon/${id}`)
       const {avatar, name, type} = response.data
       setInformations({avatar, name, type})
       setIsEditInformations(true);

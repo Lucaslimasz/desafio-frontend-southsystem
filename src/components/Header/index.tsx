@@ -22,8 +22,6 @@ function Header() {
     history.push("/");
   };
 
-  
-
   return (
     <>
       <S.Container>

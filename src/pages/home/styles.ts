@@ -31,8 +31,14 @@ export const Informations = styled.div`
       display: flex;
       align-items: center;
       font-weight: bold;
+      cursor: pointer;
       img {
         margin-right: 16px;
+      }
+      &:hover {
+        img {
+          transform: scale(1.2);
+        }
       }
     }
 
