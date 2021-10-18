@@ -1,9 +1,9 @@
-import Modal from "react-modal";
+import { useEffect, useState } from "react";
 import * as S from "./styles";
 
 import Logo from "../../assets/logo-white.svg";
 import Power from "../../assets/power.svg";
-import { useEffect, useState } from "react";
+import Modal from "../../components/Modal";
 import { Button } from "../Button/styles";
 import { useHistory } from "react-router";
 
@@ -19,24 +19,28 @@ function Header() {
 
   const onClose = () => {
     localStorage.clear();
-    history.push('/')
-  }
+    history.push("/");
+  };
+
+  
 
   return (
     <>
-    <S.Container>
-      <S.Wellcome>
-        <img src={Logo} alt="Logo" />
-        {name && <p>Bem vindo(a), {name}</p>}
-      </S.Wellcome>
-      <S.Buttons>
-        <Button onClick={() => setOpenModal(true)}>Cadastrar novo dragão</Button>
-        <S.Icon onClick={onClose}>
-          <img src={Power} alt="Sair" />
-        </S.Icon>
-      </S.Buttons>
-    </S.Container>
-    <Modal isOpen={openModal} onRequestClose={() => setOpenModal(false)}/>
+      <S.Container>
+        <S.Wellcome>
+          <img src={Logo} alt="Logo" />
+          {name && <p>Bem vindo(a), {name}</p>}
+        </S.Wellcome>
+        <S.Buttons>
+          <Button onClick={() => setOpenModal(true)}>
+            Cadastrar novo dragão
+          </Button>
+          <S.Icon onClick={onClose}>
+            <img src={Power} alt="Sair" />
+          </S.Icon>
+        </S.Buttons>
+      </S.Container>
+      <Modal isOpen={openModal} onRequestClose={setOpenModal} />
     </>
   );
 }

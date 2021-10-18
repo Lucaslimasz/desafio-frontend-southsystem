@@ -2,7 +2,7 @@ import styled from "styled-components";
 
 export const Container = styled.div`
   width: 100%;
-  height: 100vh;
+  padding-bottom: 100px;
 
   max-width: 1110px;
   margin: auto;
@@ -24,7 +24,7 @@ export const Informations = styled.div`
     border-collapse: collapse;
 
     tr {
-      border-bottom: 1pt solid #fff;
+      border-bottom: 1px solid #fff;
     }
 
     .principal {
@@ -35,28 +35,33 @@ export const Informations = styled.div`
         margin-right: 16px;
       }
     }
-    
-    th, td {
+
+    th,
+    td {
       padding: 14px 0;
-      
+
       text-align: left;
       font-weight: 500;
       font-size: 14px;
       text-transform: uppercase;
-  
+
       color: #ffffff;
     }
- 
+
     td {
       font-weight: 400;
       text-transform: none;
       button {
         background: none;
-        &:last-child{
+        &:last-child {
           margin-left: 10px;
         }
       }
+      img {
+        width: 40px;
+        height: 40px;
+        border-radius: 8px;
+      }
     }
-
   }
 `;
